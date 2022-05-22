@@ -15,19 +15,10 @@ connection.authenticate().then(() => {
 
 
 
-// var usersRouter = require('./routes/users');
 var userRouter = require('./server/user');
 var orderRouter = require('./server/orders');
 
 var app = express();
-
-// module.exports.middleware = function(app){
-//   app.use(function (req, res, next) {
-//     req.logId = parseInt(utilOperation.randomString(8, '#'))
-//     next();
-//   })
-// }
-// this.middleware(app);
 
 
 // view engine setup
@@ -52,10 +43,8 @@ function myCors(req, res, next) {
     next();
   }
 }
-// channel-id,authorization,
 app.use(myCors)
 
-// app.use('/', indexRouter);
 app.use('/',userRouter);
 app.use('/order',orderRouter);
 
